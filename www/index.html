@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example 14.1 - Media</title>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+    <!-- Load the jQuery Mobile CSS file -->
+    <link rel="stylesheet" href="libs/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <!-- Then the jQuery support files -->
+    <script type="text/javascript" charset="utf-8" src="libs/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="libs/jquery.mobile-1.4.5.min.js"></script>
+    <!-- Load the application's main JavaScript file -->
+    <script type="text/javascript" charset="utf-8" src="js/index.js"></script>
+    <!-- Load the cordova JavaScript file -->
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <!-- Apply some styling to center the buttons -->
+    <STYLE type="text/css">
+      .centered {
+        text-align: center;
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+
+      /* Borrowed from http://monocaffe.blogspot.com/2013/05/a-jquery-mobile-progress-bar.html */
+      .progress-bar input[type=number], .ui-slider-handle {
+        display: none;
+      }
+      .progress-bar .ui-slider-track {
+        margin: 0px;
+      }
+	  
+	  div.ui-btn-active{
+		background-image: -webkit-gradient(linear,left top,left bottom,from(#b8b894),to(#00704A)) !important;
+	}
+	  
+    </STYLE>
+  </head>
+  
+  
+  <body onload="onBodyLoad()">
+  
+  <div data-role="page" id="main-page">
+  
+	  <header data-role="header">
+		<h1>GGC Alma Mater</h1>
+	  </header>
+	  
+	  
+	  <div data-role="content">
+		<div class="centered">
+			<select onchange="initMediaObject(this.value)">
+				<option value = "0">Instrumental</option>
+				<option value = "1">Low Vocal</option>
+				<option value = "2">High Vocal</option>
+				<option value = "3">Vocals Only</option>
+			</select>
+		</div>
+		
+		
+		<div class="centered">
+		  <div data-role="controlgroup" data-type="horizontal">
+			<a onclick="doPlay();" id="btnPlay" data-role="button" data-icon="arrow-r">Play</a>
+			<a onclick="doPause();" id="btnPause" data-role="button" data-icon="grid">Pause</a>
+			<a onclick="doStop();" id="btnStop" data-role="button" data-icon="delete">Stop</a>
+		  </div>
+		</div>
+		
+		
+		<div class="progress-bar">
+		  <input type="range" id="progress-bar" value="0" min="0" max="100" data-highlight="true" data-mini="true" />
+		</div>
+		
+		<p><strong>Lyrics: </strong><span id="lyricsHeader"></span></p>
+		<p> | <span id="previousLyric"></span></p>
+		<p><strong> | <span id="currentLyric"></span></p></strong>
+		<p> | <span id="nextLyric"></span></p>
+		<hr />
+		
+		
+		<h5 id="positionLabel">Position: - / - seconds</h5>
+		
+		<a href="#about-page" class="ui-btn" style="padding-top=20px">About</a>
+		
+	  </div>
+	
+	</div>
+  
+  <div data-role="page" id="about-page">
+  
+	<header data-role="header">
+		<h1>About Page</h1>
+	</header>
+  
+	<div data-role="main" class="ui-content">
+		
+		<div data-role="main" id="picture">
+			<img src="img/grizzly.jpg" alt="GGC Grizzly" class="headerpicture">
+		</div>
+		
+		<div class="centered">
+		  
+		  <p class="about"> The Georgia Gwinnett College alma mater app was created by Aaron Knobloch on February 8th, 2017 as a project for
+			  ITEC 4550. The GGC alma mater was written by Brittany Dertz in partnership with Alvina Atkinson. 
+		  </p>
+		  
+		</div>
+		
+		<a href="#main-page" class="ui-btn" style="padding-top=20px">Main Page</a>
+		
+	</div>
+  
+  </div>
+  
+  </body>
+</html>
